@@ -3,7 +3,12 @@
 <%= avatar_for @user, height: 200, width: 200 %>
 
 <h2>Articles</h2>
-<% @user.articles.each do |article| %>
+
+<div align="center">
+  <%= will_paginate @user_articles %>
+</div>
+
+<% @user_articles.each do |article| %>
   <h3><%= article.title %></h3>
   <p><%= article.description %></p>
 <% end %>
