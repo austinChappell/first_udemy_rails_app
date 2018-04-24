@@ -2,5 +2,6 @@
 
 <% @users.each do |user| %>
   <h2><%= link_to user.username, user_path(user) %> <%= link_to "Edit", edit_user_path(user) %></h2>
+  <p><%= pluralize(user.articles.count, "article") %> written.</p>
   <p><%= user.email %></p>
 <% end %>
