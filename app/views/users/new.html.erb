@@ -1,0 +1,14 @@
+<h1>Sign Up</h1>
+
+<% if @user.errors.any? %>
+  <h2>The following errors prevented the article from being created</h2>
+  <% @user.errors.full_messages.each do |msg| %>
+    <ul>
+      <li>
+        <%= msg %>
+      </li>
+    </ul>
+  <% end %>
+<% end %>
+
+<%= render 'form' %>
