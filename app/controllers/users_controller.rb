@@ -49,7 +49,7 @@ class UsersController < ApplicationController
   end
 
   def require_same_user
-    if current_user != @user
+    if current_user != @user && !current_user.admin?
       redirect_to users_path
       flash[:danger] = "You must be the logged in user to update this user"
     end
