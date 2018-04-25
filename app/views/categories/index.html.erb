@@ -1,3 +1,6 @@
+<%= link_to "Add Category", new_category_path if logged_in? && current_user.admin? %>
+<%= will_paginate %>
+
 <% @categories.each do |category| %>
   <h1><%= category.name %></h1>
 <% end %>
