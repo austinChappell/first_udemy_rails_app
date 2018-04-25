@@ -3,6 +3,14 @@
 
 <p><%= @article.description %></p>
 
+<% if @article.categories.count > 0 %>
+  <ul>
+    <% @article.categories.each do |c| %>
+      <li><%= c.name %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <% if logged_in? && (@article.user == current_user || current_user.admin?) %>
   <p>
     <%= link_to "Edit Article", edit_article_path(@article) %>

@@ -21,6 +21,20 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def edit
+
+  end
+
+  def update
+    if @category.update(category_params)
+      flash[:success] = "Category successfully updated"
+      redirect_to category_path
+    else
+      flash[:failure] = "Category failed to update"
+      render :edit
+    end
+  end
+
   def show
     
   end

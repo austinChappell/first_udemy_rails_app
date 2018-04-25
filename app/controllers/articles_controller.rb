@@ -10,7 +10,6 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new
-    @categories = Category.all
   end
 
   def edit
