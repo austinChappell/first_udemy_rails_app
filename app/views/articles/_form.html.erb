@@ -11,22 +11,28 @@
 
 <%= form_for @article do |f| %>
 
-  <p>
+  <div>
     <%= f.label :title %><br />
     <%= f.text_field :title %>
-  </p>
+  </div>
 
-  <p>
+  <div>
     <%= f.label :description %><br />
     <%= f.text_area :description %>
-  </p>
+  </div>
 
-  <p>
+  <div>
+    <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
+      <% cb.label { cb.check_box + cb.text } %>
+    <% end %>
+  </div>
+
+  <div>
     <%= f.submit %>
-  </p>
+  </div>
 
-  <p>
+  <div>
     <%= link_to "Back to Articles", articles_path %>
-  </p>
+  </div>
 
 <% end %>
