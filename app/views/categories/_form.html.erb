@@ -1,0 +1,27 @@
+<% if @category.errors.any? %>
+  <h2>The following errors prevented the article from being created</h2>
+  <% @category.errors.full_messages.each do |msg| %>
+    <ul>
+      <li>
+        <%= msg %>
+      </li>
+    </ul>
+  <% end %>
+<% end %>
+
+<%= form_for @category do |f| %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+
+  <p>
+    <%= link_to "Back to Categories", categories_path %>
+  </p>
+
+<% end %>
